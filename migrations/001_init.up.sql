@@ -1,6 +1,5 @@
 CREATE TABLE todos (
     id SERIAL PRIMARY KEY,
     title TEXT NOT NULL,
-    completed BOOLEAN NOT NULL DEFAULT false,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    completed BOOLEAN NOT NULL DEFAULT false
 );
