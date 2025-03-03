@@ -1,8 +1,10 @@
 package todo
 
 import (
-	"encoding/json"
 	"net/http"
+
+	"github.com/MuhammadUsamaAwan/go-todo-app/internal/models"
+	"github.com/MuhammadUsamaAwan/go-todo-app/pkg/response"
 )
 
 type TodoHandler struct {
@@ -16,9 +18,15 @@ func NewTodoHandler(service *TodoService) *TodoHandler {
 func (h *TodoHandler) GetTodos(w http.ResponseWriter, r *http.Request) {
 	todos, err := h.service.GetTodos(r.Context())
 	if err != nil {
-		http.Error(w, err.Error(), http.StatusInternalServerError)
+		response.JSONResponse(w, 500, models.APIResponse{
+			Message: "Internal server error",
+		})
 		return
 	}
 
-	json.NewEncoder(w).Encode(todos)
+	response.JSONResponse(w, 200, models.APIResponse{
+		Data:    todos,
+		Message: "Todos fetched successfully",
+	})
+
 }

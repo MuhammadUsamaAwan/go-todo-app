@@ -1,4 +1,4 @@
-- [ ] Structured response and error handling
+- [x] Structured response and error handling
 - [ ] Add validation
 - [ ] Create/Update/Delete operations
 - [ ] Add OpenAPI documentation
