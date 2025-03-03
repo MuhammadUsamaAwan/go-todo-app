@@ -12,12 +12,17 @@ type Config struct {
 }
 
 func LoadConfig() Config {
-	err := godotenv.Load()
+	err := godotenv.Load(".env")
 	if err != nil {
 		log.Fatal("Error loading .env file")
 	}
 
+	dbURL := os.Getenv("DATABASE_URL")
+	if dbURL == "" {
+		log.Fatal("DATABASE_URL is not set in the environment")
+	}
+
 	return Config{
-		DbURL: os.Getenv("DB_URL"),
+		DbURL: dbURL,
 	}
 }
