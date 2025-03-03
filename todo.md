@@ -1,0 +1,7 @@
+- [ ] Structured response and error handling
+- [ ] Add validation
+- [ ] Create/Update/Delete operations
+- [ ] Add OpenAPI documentation
+- [ ] Add logging
+- [ ] Add tests
+- [ ] Dockerize the application
