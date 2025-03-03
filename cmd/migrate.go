@@ -4,7 +4,7 @@ import (
 	"log"
 	"time"
 
-	"github.com/MuhammadUsamaAwan/go-todo-app/config"
+	"github.com/MuhammadUsamaAwan/go-todo-app/pkg/config"
 	"github.com/golang-migrate/migrate/v4"
 	_ "github.com/golang-migrate/migrate/v4/database/postgres"
 	_ "github.com/golang-migrate/migrate/v4/source/file"
