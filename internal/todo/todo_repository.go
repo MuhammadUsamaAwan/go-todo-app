@@ -21,7 +21,7 @@ func (r *TodoRepository) GetAll(ctx context.Context) ([]TodoDTO, error) {
 	}
 	defer rows.Close()
 
-	var todos []TodoDTO
+	var todos []TodoDTO = make([]TodoDTO, 0)
 	for rows.Next() {
 		var todo TodoDTO
 		if err := rows.Scan(&todo.ID, &todo.Title, &todo.Completed); err != nil {

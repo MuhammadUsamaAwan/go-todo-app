@@ -1,6 +1,7 @@
 - [x] Structured response and error handling
-- [ ] Add validation
-- [ ] Create/Update/Delete operations
+- [x] Add validation
+- [x] Create/Update/Delete operations
+- [ ] Hot reload
 - [ ] Add OpenAPI documentation
 - [ ] Add logging
 - [ ] Add tests

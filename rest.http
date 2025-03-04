@@ -6,7 +6,6 @@ Content-Type: application/json
 
 {
     "title": "Go to the gym"
-    "completed": false
 }
 
 ###
