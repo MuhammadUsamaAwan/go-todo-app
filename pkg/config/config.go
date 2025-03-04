@@ -9,6 +9,7 @@ import (
 
 type Config struct {
 	DbURL string
+	Port  string
 }
 
 func LoadConfig() Config {
@@ -22,7 +23,13 @@ func LoadConfig() Config {
 		log.Fatal("DATABASE_URL is not set in the environment")
 	}
 
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "8080"
+	}
+
 	return Config{
 		DbURL: dbURL,
+		Port:  port,
 	}
 }

@@ -26,6 +26,6 @@ func main() {
 	r.Put("/todos/{id}", todoHandler.Update)
 	r.Delete("/todos/{id}", todoHandler.Delete)
 
-	log.Printf("Starting server on :8080")
-	http.ListenAndServe(":8080", r)
+	log.Printf("Starting server on " + cfg.Port)
+	http.ListenAndServe(":"+cfg.Port, r)
 }
