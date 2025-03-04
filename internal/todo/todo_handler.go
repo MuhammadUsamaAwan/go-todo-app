@@ -15,8 +15,8 @@ func NewTodoHandler(service *TodoService) *TodoHandler {
 	return &TodoHandler{service: service}
 }
 
-func (h *TodoHandler) GetTodos(w http.ResponseWriter, r *http.Request) {
-	todos, err := h.service.GetTodos(r.Context())
+func (h *TodoHandler) GetAll(w http.ResponseWriter, r *http.Request) {
+	todos, err := h.service.GetAll(r.Context())
 	if err != nil {
 		response.JSONResponse(w, 500, models.APIResponse{
 			Message: "Internal server error",

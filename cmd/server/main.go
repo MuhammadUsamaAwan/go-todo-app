@@ -21,7 +21,7 @@ func main() {
 	todoHandler := todo.NewTodoHandler(todoService)
 
 	r := chi.NewRouter()
-	r.Get("/todos", todoHandler.GetTodos)
+	r.Get("/todos", todoHandler.GetAll)
 
 	log.Printf("Starting server on :8080")
 	http.ListenAndServe(":8080", r)
