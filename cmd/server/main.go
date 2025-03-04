@@ -8,6 +8,8 @@ import (
 	"github.com/MuhammadUsamaAwan/go-todo-app/internal/todo"
 	"github.com/MuhammadUsamaAwan/go-todo-app/pkg/config"
 	"github.com/go-chi/chi/v5"
+	"github.com/go-chi/chi/v5/middleware"
+	"github.com/go-chi/cors"
 )
 
 func main() {
@@ -21,6 +23,13 @@ func main() {
 	todoHandler := todo.NewTodoHandler(todoService)
 
 	r := chi.NewRouter()
+	r.Use(cors.Handler(cors.Options{
+		AllowedOrigins:   []string{"https://*", "http://*"},
+		AllowedMethods:   []string{"GET", "POST", "PUT", "DELETE"},
+		AllowedHeaders:   []string{"Content-Type", "Authorization"},
+		AllowCredentials: true,
+	}))
+	r.Use(middleware.Logger)
 	r.Get("/todos", todoHandler.GetAll)
 	r.Post("/todos", todoHandler.Create)
 	r.Put("/todos/{id}", todoHandler.Update)

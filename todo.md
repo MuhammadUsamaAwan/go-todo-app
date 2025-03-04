@@ -3,6 +3,6 @@
 - [x] Create/Update/Delete operations
 - [x] Hot reload
 - [ ] Add OpenAPI documentation
-- [ ] Add logging
+- [x] Add logging
+- [ ] Add Authentication
 - [ ] Add tests
-- [ ] Dockerize the application
