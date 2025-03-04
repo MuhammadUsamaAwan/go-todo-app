@@ -38,7 +38,7 @@ func (r *TodoRepository) Create(ctx context.Context, dto *CreateTodoDTO) error {
 }
 
 func (r *TodoRepository) Update(ctx context.Context, dto *UpdateTodoDTO, id int) error {
-	_, err := r.pool.Exec(ctx, "UPDATE todos SET title = $1, completed = $2 WHERE id = $3", dto.Title, dto.Completed, id)
+	_, err := r.pool.Exec(ctx, "UPDATE todos SET title = COALESCE($1, title), completed = COALESCE($2, completed) WHERE id = $3", dto.Title, dto.Completed, id)
 	return err
 }
 

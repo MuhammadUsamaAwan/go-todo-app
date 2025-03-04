@@ -1,0 +1,21 @@
+GET http://localhost:8080/todos HTTP/1.1
+
+###
+POST http://localhost:8080/todos HTTP/1.1
+Content-Type: application/json
+
+{
+    "title": "Go to the gym"
+    "completed": false
+}
+
+###
+PUT http://localhost:8080/todos/1 HTTP/1.1
+Content-Type: application/json
+
+{
+    "title": "Learn go"
+}
+
+###
+DELETE http://localhost:8080/todos/4 HTTP/1.1

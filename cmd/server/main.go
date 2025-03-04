@@ -22,6 +22,9 @@ func main() {
 
 	r := chi.NewRouter()
 	r.Get("/todos", todoHandler.GetAll)
+	r.Post("/todos", todoHandler.Create)
+	r.Put("/todos/{id}", todoHandler.Update)
+	r.Delete("/todos/{id}", todoHandler.Delete)
 
 	log.Printf("Starting server on :8080")
 	http.ListenAndServe(":8080", r)
