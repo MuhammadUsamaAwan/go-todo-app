@@ -5,7 +5,7 @@ import (
 	"log"
 	"time"
 
-	"github.com/MuhammadUsamaAwan/go-todo-app/internal/db"
+	infrastructure "github.com/MuhammadUsamaAwan/go-todo-app/internal/infrastruture"
 	"github.com/MuhammadUsamaAwan/go-todo-app/pkg/config"
 )
 
@@ -13,7 +13,7 @@ func main() {
 	cfg := config.LoadConfig()
 
 	ctx := context.Background()
-	pool := db.CreateDbPool(cfg.DbURL)
+	pool := infrastructure.CreateDbPool(cfg.DbURL)
 	defer pool.Close()
 
 	seeds := []string{

@@ -4,7 +4,7 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/MuhammadUsamaAwan/go-todo-app/internal/db"
+	infrastructure "github.com/MuhammadUsamaAwan/go-todo-app/internal/infrastruture"
 	"github.com/MuhammadUsamaAwan/go-todo-app/internal/todo"
 	"github.com/MuhammadUsamaAwan/go-todo-app/pkg/config"
 	"github.com/go-chi/chi/v5"
@@ -15,7 +15,7 @@ import (
 func main() {
 	cfg := config.LoadConfig()
 
-	pool := db.CreateDbPool(cfg.DbURL)
+	pool := infrastructure.CreateDbPool(cfg.DbURL)
 	defer pool.Close()
 
 	todoRepo := todo.NewTodoRepository(pool)
